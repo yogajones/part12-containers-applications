@@ -1,0 +1,62 @@
+joukos@joukos-ubuntu:~/part12-containers-applications/todo-app/todo-backend$ docker exec -it todo-backend-mongo-1 bash
+root@9a1f45b2184f:/# mongosh -u root -p example
+Current Mongosh Log ID:	6687ceb60b4be3de92149f47
+Connecting to:		mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10
+Using MongoDB:		7.0.12
+Using Mongosh:		2.2.10
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-07-05T10:44:41.720+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2024-07-05T10:44:42.028+00:00: vm.max_map_count is too low
+------
+
+test> show dbs
+admin         100.00 KiB
+config         12.00 KiB
+local          72.00 KiB
+the_database   40.00 KiB
+test> use the_database
+switched to db the_database
+the_database> show collections
+todos
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('6687cdb0726fbf0018149f48'),
+    text: 'Write code',
+    done: true
+  },
+  {
+    _id: ObjectId('6687cdb0726fbf0018149f49'),
+    text: 'Learn about containers',
+    done: false
+  }
+]
+the_database> db.todos.insertOne({text: "Increase the number of tools in my tool belt", done: false })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6687cf300b4be3de92149f48')
+}
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('6687cdb0726fbf0018149f48'),
+    text: 'Write code',
+    done: true
+  },
+  {
+    _id: ObjectId('6687cdb0726fbf0018149f49'),
+    text: 'Learn about containers',
+    done: false
+  },
+  {
+    _id: ObjectId('6687cf300b4be3de92149f48'),
+    text: 'Increase the number of tools in my tool belt',
+    done: false
+  }
+]
+the_database> exit
+root@9a1f45b2184f:/# exit
