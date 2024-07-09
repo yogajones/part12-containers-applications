@@ -17,7 +17,7 @@ const Todo = ({ todo, onClickDelete, onClickComplete }) => {
         </span>
         <span>
           <button onClick={onClickDelete(todo)}> Delete </button>
-          <button onClick={onClickComplete(todo)}> Mark done </button>
+          <button onClick={onClickComplete(todo)}> Set as done </button>
         </span>
       </>
     )
