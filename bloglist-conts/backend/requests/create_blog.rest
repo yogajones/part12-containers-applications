@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlZXBlZSIsImlkIjoiNjVlZjEwOGQ4Y2MxNDY3NTYwMzUwMjNmIiwiaWF0IjoxNzEwMTY2MTkwfQ.7ENLuLYiUUCxUDfigHzhImM6qF38EpZa-sqvyYnfp8k
+
+{
+    "title": "It's..",
+    "author": "John Cleese",
+    "url": "http://www.python.org",
+    "likes": 3
+}
